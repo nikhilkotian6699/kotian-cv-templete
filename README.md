@@ -11,7 +11,13 @@ A Next.js + TypeScript CV/Resume template styled like a classic game UI. Level u
 > Add screenshots of your customized CV from the `/public` folder.
 
 ![CV Preview 1](./public/CV100.png)
+
+
+
 ![CV Preview 2](./public/CV101.png)
+
+
+
 ![CV Preview 3](./public/CV102.png)
 
 ---
