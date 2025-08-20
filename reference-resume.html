@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil N Kotian - Resume</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #000, #2d004d);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 30px rgba(128,0,255,0.7);
+      animation: fadeInDown 1s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(143,0,255,0.2), transparent 70%);
+      animation: flow 10s linear infinite;
+    }
+    @keyframes flow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .header img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      border: 3px solid #8f00ff;
+      animation: bounceIn 1.5s ease;
+      z-index: 1;
+    }
+    .header-info {
+      flex: 1;
+      margin-left: 20px;
+      z-index: 1;
+    }
+    .header-info h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #b366ff;
+      text-shadow: 0 0 12px #8f00ff;
+    }
+    .header-info p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #ddd;
+    }
+    .contact-info {
+      text-align: right;
+      font-size: 14px;
+      color: #bbb;
+      z-index: 1;
+    }
+    .social-icons a {
+      margin-left: 10px;
+      color: #b366ff;
+      font-size: 20px;
+      transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+    }
+    .social-icons a:hover {
+      color: #fff;
+      transform: scale(1.2);
+      text-shadow: 0 0 15px #8f00ff, 0 0 25px #b366ff;
+    }
+    .section {
+      margin: 40px 0;
+      animation: fadeInUp 1s ease;
+    }
+    .section h2 {
+      color: #b366ff;
+      border-left: 5px solid #8f00ff;
+      padding-left: 10px;
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px #8f00ff;
+      text-align: center;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .skill-box {
+      flex: 1 1 calc(22% - 20px);
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 0 20px rgba(143,0,255,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-box:hover {
+      transform: translateY(-10px) scale(1.08);
+      box-shadow: 0 0 35px rgba(143,0,255,0.9);
+    }
+    .circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: conic-gradient(#8f00ff var(--percent), #222 var(--percent));
+      margin: 0 auto 15px;
+      position: relative;
+      animation: spin 3s infinite linear;
+    }
+    @keyframes spin {
+      0% { filter: brightness(0.8); }
+      50% { filter: brightness(1.2); }
+      100% { filter: brightness(0.8); }
+    }
+    .circle::after {
+      content: attr(data-percent);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .skill-box h3 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #b366ff;
+    }
+    .skill-box p {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.4;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      justify-content: center;
+    }
+    .project-card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 20px;
+      color: #ddd;
+      min-height: 220px;
+      text-align: center;
+      box-shadow: 5px 5px 15px #000, -5px -5px 15px #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease;
+      border: 2px solid #8f00ff;
+    }
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: inset 2px 2px 6px #000, inset -2px -2px 6px #333, 0 0 30px rgba(143,0,255,0.7);
+    }
+    .project-card h3 {
+      color: #b366ff;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-size: 14px;
+      color: #bbb;
+    }
+    .repo-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #8f00ff, #b366ff);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 12px rgba(143,0,255,0.6);
+    }
+    .repo-btn:hover {
+      background: linear-gradient(135deg, #b366ff, #8f00ff);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #8f00ff;
+      text-shadow: 0 0 5px #fff;
+    }
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(143,0,255,0.3);
+      animation: fadeInUp 1s ease;
+    }
+    .footer .social-icons a {
+      margin: 0 15px;
+      font-size: 22px;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.1); opacity: 1; }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="/mnt/data/CV1.png" alt="Profile Photo">
+      <div class="header-info">
+        <h1>NIKHIL N KOTIAN</h1>
+        <p>WEB | E-HACK | D-MARK | STUDENT</p>
+        <p>"Dynamic and adaptive professional with strong technical expertise, impactful communication, and a growth-driven mindset to learn and excel."</p>
+      </div>
+      <div class="contact-info">
+        <p>📍 Mangalore, Karnataka</p>
+        <p>📞 +91 9353472169</p>
+        <p>📧 cf@brandrush.com</p>
+        <div class="social-icons">
+          <a href="https://wa.me/919353472169" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:cf@brandrush.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <h2>EDUCATION</h2>
+      <p><strong>2024-2026</strong> - Mangalore Institute of Technology & Engineering (MITE), Karnataka</p>
+      <p>MCA – Master of Computer Applications in Cyber Security (Cryptography)</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <h2>SKILLS & EXPERTISE</h2>
+      <div class="skills">
+        <div class="skill-box">
+          <div class="circle" style="--percent: 85%;" data-percent="85%"></div>
+          <h3>JAVA</h3>
+          <p>OOP, Spring Boot, Power Bill</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 80%;" data-percent="80%"></div>
+          <h3>PYTHON</h3>
+          <p>Data Analysis, Scraping, Visualization</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 75%;" data-percent="75%"></div>
+          <h3>PROMPTING</h3>
+          <p>Code Debug, Info Finding, Root Access</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 70%;" data-percent="70%"></div>
+          <h3>E-HACKING</h3>
+          <p>SQL Injection, WiFi Jacking, Terminal</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 85%;" data-percent="85%"></div>
+          <h3>JAVASCRIPT</h3>
+          <p>Next.js, React, Vue</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 65%;" data-percent="65%"></div>
+          <h3>BUSINESS</h3>
+          <p>Consultant, Real Estate</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 70%;" data-percent="70%"></div>
+          <h3>AI MEDIA</h3>
+          <p>Real Estate, D-Marketing</p>
+        </div>
+        <div class="skill-box">
+          <div class="circle" style="--percent: 90%;" data-percent="90%"></div>
+          <h3>TEAM HANDLING</h3>
+          <p>Leadership, Negotiation</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <h2>PROJECT EXPERIENCE</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>AI Media for Real Estate</h3>
+          <p>Developed an AI-powered tool to enhance digital marketing in real estate.</p>
+          <a href="https://github.com/" target="_blank" class="repo-btn">🚀 View Repo</a>
+        </div>
+        <div class="project-card">
+          <h3>Cyber Security Simulation</h3>
+          <p>Created hacking simulations for SQL injection and WiFi security testing.</p>
+          <a href="https://github.com/" target="_blank" class="repo-btn">🚀 View Repo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="social-icons">
+        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/919353472169" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
